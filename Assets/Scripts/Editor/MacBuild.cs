@@ -1,10 +1,7 @@
-using System;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using FrameSynthesis.XR;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 
 namespace Editor
 {
@@ -21,12 +18,12 @@ namespace Editor
 
         //Mac
         private const string MacPath = "Mac/";
-        private const string MacApplicationName = "Memoria.app";
+        private const string MacApplicationName = "GitHubActionsBuild.app";
 
         #endregion
 
         [MenuItem("Tools/Build/Release/Mac")]
-        private static void BuildReleaseMac()
+        public static void BuildReleaseMac()
         {
             BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, MacPath, 
                 MacApplicationName, false);
