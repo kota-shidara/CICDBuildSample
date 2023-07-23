@@ -4,14 +4,15 @@ jobs:
   Build:
     runs-on: dara-macbook-pro
     steps:
-    - name: Checkout
+    - name: Checkout-Mac
       uses: actions/checkout@v3
       with:
         clean: false
+        path: PlatformMac
     - name: Checkout-Windows
       uses: actions/checkout@v3
       with:
         clean: false
-        path: ../PlatformWindows
-    - name: Build
-      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath . -executeMethod MacBuild.BuildReleaseMac -nographics -logFile
+        path: PlatformWindows
+#    - name: Build
+#      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath . -executeMethod MacBuild.BuildReleaseMac -nographics -logFile
