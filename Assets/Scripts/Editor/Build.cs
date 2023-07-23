@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using FrameSynthesis.XR;
 
-public static class MacBuild
+public static class Build
 {
     static string[] ScenePaths => EditorBuildSettings.scenes.Select(scene => scene.path).ToArray();
 
@@ -14,17 +14,23 @@ public static class MacBuild
     private const string ReleasePath = "Release/";
     private const string DevelopPath = "Develop/";
 
+    //windows
+    private const string WindowsPath = "Windows/";
+    private const string WindowsApplicationName = "GitHubActionsBuild.exe";
+    
     //Mac
     private const string MacPath = "Mac/";
     private const string MacApplicationName = "GitHubActionsBuild.app";
 
     #endregion
 
-    public static void LogTest()
-    {
-        Debug.Log("Hello World test!");
-    }
     
+    [MenuItem("Tools/Build/Release/Windows")]
+    public static void BuildReleaseWindows()
+    {
+        BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, WindowsPath, 
+            WindowsApplicationName, true);
+    }
 
     [MenuItem("Tools/Build/Release/Mac")]
     public static void BuildReleaseMac()
