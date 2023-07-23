@@ -3,6 +3,7 @@ using UnityEngine.UI;
 public class Manager : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private Text versionText;
     
     void Start()
     {
@@ -13,5 +14,7 @@ public class Manager : MonoBehaviour
 #elif UNITY_ANDROID
         text.text = "Android";
 #endif
+
+        versionText.text = "1";
     }
 }
