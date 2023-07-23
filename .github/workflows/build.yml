@@ -4,9 +4,9 @@ jobs:
   Build:
     runs-on: dara-macbook-pro
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          clean: false
-      - name: Build
-        run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile ~/Projects/UnitySamples/CICDBuildSample/Logs/Build/build.log -projectPath ~/Projects/UnitySamples/CICDBuildSample -executeMethod MacBuild.BuildReleaseMac -nographics
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        clean: false
+    - name: Build
+      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile ~/Projects/UnitySamples/CICDBuildSample/Logs/Build/build.log -projectPath ~/Projects/UnitySamples/CICDBuildSample -executeMethod MacBuild.BuildReleaseMac -nographics
