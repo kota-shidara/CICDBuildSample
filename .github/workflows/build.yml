@@ -8,5 +8,10 @@ jobs:
       uses: actions/checkout@v3
       with:
         clean: false
+    - name: Checkout-Windows
+      uses: actions/checkout@v3
+      with:
+        clean: false
+        path: Windows
     - name: Build
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath . -executeMethod MacBuild.BuildReleaseMac -nographics -logFile
