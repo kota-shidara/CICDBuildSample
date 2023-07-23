@@ -9,4 +9,4 @@ jobs:
         with:
           clean: false
       - name: Build
-        run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile ~/Projects/UnitySamples/CICDBuildSample/Logs/Build/build.log -projectPath ~/Projects/UnitySamples/CICDBuildSample -executeMethod MacBuild.BuildReleaseMac -nographics
+        run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile ~/Projects/UnitySamples/CICDBuildSample/Logs/Build/build.log -projectPath . -executeMethod MacBuild.BuildReleaseMac -nographics
