@@ -3,51 +3,54 @@ using UnityEngine;
 using UnityEditor;
 using FrameSynthesis.XR;
 
-namespace Editor
+public static class MacBuild
 {
-    public static class MacBuild
+    static string[] ScenePaths => EditorBuildSettings.scenes.Select(scene => scene.path).ToArray();
+
+    #region Paths
+
+    private const string RootPath = "Build/";
+
+    private const string ReleasePath = "Release/";
+    private const string DevelopPath = "Develop/";
+
+    //Mac
+    private const string MacPath = "Mac/";
+    private const string MacApplicationName = "GitHubActionsBuild.app";
+
+    #endregion
+
+    public static void LogTest()
     {
-        static string[] ScenePaths => EditorBuildSettings.scenes.Select(scene => scene.path).ToArray();
+        Debug.Log("Hello World test!");
+    }
+    
 
-        #region Paths
+    [MenuItem("Tools/Build/Release/Mac")]
+    public static void BuildReleaseMac()
+    {
+        BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, MacPath, 
+            MacApplicationName, false);
+    }
 
-        private const string RootPath = "Build/";
-
-        private const string ReleasePath = "Release/";
-        private const string DevelopPath = "Develop/";
-
-        //Mac
-        private const string MacPath = "Mac/";
-        private const string MacApplicationName = "GitHubActionsBuild.app";
-
-        #endregion
-
-        [MenuItem("Tools/Build/Release/Mac")]
-        public static void BuildReleaseMac()
+    private static void BuildRelease(BuildTargetGroup targetGroup, BuildTarget target, string outputPath,
+        string applicationName, bool enablePlugin)
+    {
+        Debug.Log($"BuildRelease {target}");
+        if (enablePlugin)
         {
-            BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, MacPath, 
-                MacApplicationName, false);
+            XRPluginManagementSettings.EnablePlugin(targetGroup, XRPluginManagementSettings.Plugin.OpenXR);
+        }
+        else
+        {
+            XRPluginManagementSettings.DisablePlugin(targetGroup, XRPluginManagementSettings.Plugin.OpenXR);
         }
 
-        private static void BuildRelease(BuildTargetGroup targetGroup, BuildTarget target, string outputPath,
-            string applicationName, bool enablePlugin)
-        {
-            Debug.Log($"BuildRelease {target}");
-            if (enablePlugin)
-            {
-                XRPluginManagementSettings.EnablePlugin(targetGroup, XRPluginManagementSettings.Plugin.OpenXR);
-            }
-            else
-            {
-                XRPluginManagementSettings.DisablePlugin(targetGroup, XRPluginManagementSettings.Plugin.OpenXR);
-            }
-
-            Debug.Log($"BuildRelease {target} {(enablePlugin ? "EnablePlugin" : "DisablePlugin")}");
-            string buildResultPath = RootPath + ReleasePath + outputPath;
-            BuildPipeline.BuildPlayer(ScenePaths,
-                buildResultPath + applicationName,
-                target,
-                BuildOptions.None);
-        }
+        Debug.Log($"BuildRelease {target} {(enablePlugin ? "EnablePlugin" : "DisablePlugin")}");
+        string buildResultPath = RootPath + ReleasePath + outputPath;
+        BuildPipeline.BuildPlayer(ScenePaths,
+            buildResultPath + applicationName,
+            target,
+            BuildOptions.None);
     }
 }

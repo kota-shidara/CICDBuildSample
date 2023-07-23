@@ -1,0 +1,7 @@
+name: Build for Mac
+on: workflow_dispatch
+jobs:
+  Build:
+    runs-on: Dara-MacBook-Pro
+    steps:
+      - run: echo "Hello World"
