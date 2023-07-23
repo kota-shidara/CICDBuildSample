@@ -14,5 +14,5 @@ jobs:
       with:
         clean: false
         path: PlatformWindows
-#    - name: Build
-#      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath . -executeMethod MacBuild.BuildReleaseMac -nographics -logFile
+    - name: BuildMac
+      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformMac -executeMethod MacBuild.BuildReleaseMac -nographics -logFile
