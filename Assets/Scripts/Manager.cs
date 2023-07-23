@@ -15,6 +15,6 @@ public class Manager : MonoBehaviour
         text.text = "Android";
 #endif
 
-        versionText.text = "2";
+        versionText.text = "3";
     }
 }
