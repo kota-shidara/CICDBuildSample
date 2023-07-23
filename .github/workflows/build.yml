@@ -2,6 +2,6 @@ name: Build for Mac
 on: workflow_dispatch
 jobs:
   Build:
-    runs-on: Dara-MacBook-Pro
+    runs-on: self-hosted
     steps:
       - run: echo "Hello World"
