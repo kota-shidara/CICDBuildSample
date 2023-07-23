@@ -1,4 +1,4 @@
-name: Build for Mac
+name: Build All Platform
 on: workflow_dispatch
 jobs:
   Build:
