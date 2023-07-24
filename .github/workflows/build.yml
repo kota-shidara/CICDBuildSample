@@ -14,8 +14,15 @@ jobs:
       with:
         clean: false
         path: PlatformMac
+    - name: Checkout-Quest
+      uses: actions/checkout@v3
+      with:
+        clean: false
+        path: PlatformQuest
     - name: BuildWindows
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod Build.BuildReleaseWindows -nographics -logFile
     - name: BuildMac
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformMac -executeMethod Build.BuildReleaseMac -nographics -logFile
+    - name: BuildQuest
+      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformQuest -executeMethod Build.BuildReleaseQuest -nographics -logFile
   

@@ -16,31 +16,39 @@ public static class Build
 
     //windows
     private const string WindowsPath = "Windows/";
-    private const string WindowsApplicationName = "GitHubActionsBuild.exe";
+    private const string WindowsAppName = "GitHubActionsBuild.exe";
     
     //Mac
     private const string MacPath = "Mac/";
-    private const string MacApplicationName = "GitHubActionsBuild.app";
+    private const string MacAppName = "GitHubActionsBuild.app";
+    
+    //Quest
+    private const string QuestPath = "Quest/";
+    private const string QuestAppName = "GitHubActionsBuild.apk";
 
     #endregion
 
     
-    [MenuItem("Tools/Build/Release/Windows")]
     public static void BuildReleaseWindows()
     {
         BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, WindowsPath, 
-            WindowsApplicationName, true);
+            WindowsAppName, true);
     }
-
-    [MenuItem("Tools/Build/Release/Mac")]
+    
     public static void BuildReleaseMac()
     {
         BuildRelease(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, MacPath, 
-            MacApplicationName, false);
+            MacAppName, false);
+    }
+    
+    public static void BuildReleaseQuest()
+    {
+        BuildRelease(BuildTargetGroup.Android, BuildTarget.Android, QuestPath, 
+            QuestAppName, true);
     }
 
     private static void BuildRelease(BuildTargetGroup targetGroup, BuildTarget target, string outputPath,
-        string applicationName, bool enablePlugin)
+        string appName, bool enablePlugin)
     {
         Debug.Log($"BuildRelease {target}");
         if (enablePlugin)
@@ -55,7 +63,7 @@ public static class Build
         Debug.Log($"BuildRelease {target} {(enablePlugin ? "EnablePlugin" : "DisablePlugin")}");
         string buildResultPath = RootPath + ReleasePath + outputPath;
         BuildPipeline.BuildPlayer(ScenePaths,
-            buildResultPath + applicationName,
+            buildResultPath + appName,
             target,
             BuildOptions.None);
     }
