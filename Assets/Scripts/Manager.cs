@@ -4,6 +4,8 @@ public class Manager : MonoBehaviour
 {
     [SerializeField] private Text text;
     [SerializeField] private Text versionText;
+    [SerializeField] private Text processorCount;
+    [SerializeField] private Text processorFrequency;
     
     void Start()
     {
@@ -16,5 +18,7 @@ public class Manager : MonoBehaviour
 #endif
 
         versionText.text = "3";
+        processorCount.text = SystemInfo.processorCount.ToString();
+        processorFrequency.text = SystemInfo.processorFrequency.ToString();
     }
 }
