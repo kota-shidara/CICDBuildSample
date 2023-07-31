@@ -3,8 +3,6 @@ on: workflow_dispatch
 jobs:
   Experiment:
     runs-on: dara-macbook-pro
-    outputs:
-      return: ${{ steps.return-value.outputs.return }}
     steps:
     - name: Checkout-Windows
       uses: actions/checkout@v3
@@ -15,6 +13,5 @@ jobs:
       id: return-value
       run: |
         return=$(/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile)
-        echo "return=$return" >> $GITHUB_OUTPUT
     - name: display-value
-      run: echo "The return value is ${{ steps.return-value.outputs.return }}"
+      run: echo "The return value is ${{ steps.return-value.outputs.test }}"

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ReturnValue
 {
-    private static string ReturnValueMethod()
+    private static void ReturnValueMethod()
     {
         Debug.Log("ReturnValueMethodが呼ばれた");
-        return "ReturnValueMethod_ReturnValue";
+        Debug.Log("'test=hello' >> '$GITHUB_OUTPUT'");
     }
 }
