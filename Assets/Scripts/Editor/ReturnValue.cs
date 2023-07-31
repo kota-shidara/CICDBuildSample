@@ -5,6 +5,6 @@ public class ReturnValue
     private static void ReturnValueMethod()
     {
         Debug.Log("ReturnValueMethodが呼ばれた");
-        Debug.Log("\"test=hello\" >> \"$GITHUB_OUTPUT\"");
+        Debug.Log("\"test=hello\" >> $GITHUB_OUTPUT");
     }
 }
