@@ -11,7 +11,6 @@ jobs:
         path: PlatformWindows
     - name: return-value
       id: return-value
-      run: |
-        return=$(/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile)
+      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile
     - name: display-value
       run: echo "The return value is ${{ steps.return-value.outputs.test }}"
