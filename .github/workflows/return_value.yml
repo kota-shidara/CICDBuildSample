@@ -12,7 +12,7 @@ jobs:
     - name: return-value
       id: return-value
       run: |
-        value=${/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile}
+        value=${{ /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile }}
         echo "test=$value" >> $GITHUB_OUTPUT
     - name: set-output
       id: set-output
