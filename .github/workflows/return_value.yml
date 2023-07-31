@@ -3,6 +3,8 @@ on: workflow_dispatch
 jobs:
   Experiment:
     runs-on: dara-macbook-pro
+    outputs:
+      month: ${{ steps.return-value.outputs.return }}
     steps:
     - name: Checkout-Windows
       uses: actions/checkout@v3
