@@ -12,5 +12,10 @@ jobs:
     - name: return-value
       id: return-value
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile
+    - name: set-output
+      id: set-output
+      run: echo "test2=hello2" >> $GITHUB_OUTPUT
     - name: display-value
       run: echo "The return value is ${{ steps.return-value.outputs.test }}"
+    - name: display-value2
+      run: echo "The return value2 is ${{ steps.set-output.outputs.test2 }}"
