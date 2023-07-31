@@ -1,7 +1,7 @@
 name: Return Value Test
 on: workflow_dispatch
 jobs:
-  Build:
+  Experiment:
     runs-on: dara-macbook-pro
     steps:
     - name: Checkout-Windows
