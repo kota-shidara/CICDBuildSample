@@ -15,10 +15,10 @@ jobs:
     - name: Set environment variables from Unity output
       run: |
         while read line; do
-          echo "$line" >> $GITHUB_ENV
+          echo "$line" >> $GITHUB_OUTPUT
         done < ./PlatformWindows/Build/test.txt
     - name: Use environment variables in subsequent steps
       run: |
         echo "Variable1: ${{ VARIABLE1 }}"
-        echo "Variable3: ${{ env.VARIABLE3 }}"
-        echo "Variable2: ${{ env.VARIABLE2 }}"
+        echo "Variable3: ${{ VARIABLE3 }}"
+        echo "Variable2: ${{ VARIABLE2 }}"
