@@ -11,13 +11,14 @@ jobs:
         path: PlatformWindows
     - name: return-value
       id: return-value
+      run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.CreateOutput -nographics -logFile
+    - name: Set environment variables from Unity output
       run: |
-        value=${{ /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.ReturnValueMethod -nographics -logFile }}
-        echo "test=$value" >> $GITHUB_OUTPUT
-    - name: set-output
-      id: set-output
-      run: echo "test2=hello2" >> $GITHUB_OUTPUT
-    - name: display-value
-      run: echo "The return value is ${{ steps.return-value.outputs.test }}"
-    - name: display-value2
-      run: echo "The return value2 is ${{ steps.set-output.outputs.test2 }}"
+        while read line; do
+          echo "$line" >> $GITHUB_ENV
+        done </Users/kota/Projects/UnitySamples/CICDBuildSample/Build/test.txt>
+    - name: Use environment variables in subsequent steps
+      run: |
+        echo "Variable1: ${{ env.VARIABLE1 }}"
+        echo "Variable2: ${{ env.VARIABLE2 }}"
+        echo "Variable3: ${{ env.VARIABLE3 }}"
