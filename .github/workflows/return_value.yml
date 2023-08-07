@@ -14,7 +14,7 @@ jobs:
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.CreateOutput -nographics -logFile
     - name: Set environment variables from Unity output
       run: |
-        while read line; do
+        while IFS= read -r line; do
           echo "$line" >> $GITHUB_ENV
         done < /Users/kota/Projects/UnitySamples/CICDBuildSample/Build/test.txt
     - name: Use environment variables in subsequent steps
