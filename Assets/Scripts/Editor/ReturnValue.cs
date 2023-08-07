@@ -20,8 +20,8 @@ public class ReturnValue
         string[] outputs = new string[]
         {
             "VARIABLE1=value1",
-            "VARIABLE2=value2",
-            "VARIABLE3=value3"
+            "VARIABLE2=value22222",
+            "VARIABLE3=value3e"
         };
         WriteStringsToFile(outputs, "Build/test.txt");
     }
