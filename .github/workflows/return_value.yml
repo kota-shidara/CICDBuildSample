@@ -16,7 +16,7 @@ jobs:
       run: |
         while read line; do
           echo "$line" >> $GITHUB_ENV
-        done < /actions-runner/first_action_runner/CICDBuildSample/CICDBuildSample/PlatformWindows/Build/test.txt
+        done < /Users/kota/actions-runner/first_action_runner/CICDBuildSample/CICDBuildSample/PlatformWindows/Build/test.txt
     - name: Use environment variables in subsequent steps
       run: |
         echo "Variable1: ${{ env.VARIABLE1 }}"
