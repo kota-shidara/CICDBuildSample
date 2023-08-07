@@ -20,5 +20,5 @@ jobs:
     - name: Use environment variables in subsequent steps
       run: |
         echo "Variable1: ${{ env.VARIABLE1 }}"
-        echo "Variable2: ${{ env.VARIABLE2 }}"
         echo "Variable3: ${{ env.VARIABLE3 }}"
+        echo "Variable2: ${{ env.VARIABLE2 }}"
