@@ -1,3 +1,5 @@
 #!/bin/zsh
 
-touch /Users/kota/Desktop/test-by-shell.txt 
+file_name="$1"
+
+touch "/Users/kota/Desktop/${file_name}.txt" 
