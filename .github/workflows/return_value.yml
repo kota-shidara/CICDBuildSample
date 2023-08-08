@@ -22,4 +22,4 @@ jobs:
       run: |
         echo "Variable1: ${{ steps.set-env.outputs.VARIABLE1 }}"
     - name: ShellScript
-      run: ./PlatformWindows/ShellScripts/test_run.sh ${{ env.VARIABLE1 }}
+      run: ./PlatformWindows/ShellScripts/test_run.sh ${{ steps.set-env.outputs.VARIABLE1 }}
