@@ -13,14 +13,13 @@ jobs:
       id: return-value
       run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformWindows -executeMethod ReturnValue.CreateOutput -nographics -logFile
     - name: Set environment variables from Unity output
+      id: set-env
       run: |
         while read line; do
-          echo "$line" >> $GITHUB_ENV
+          echo "$line" >> $GITHUB_OUTPUT
         done < ./PlatformWindows/Build/test.txt
     - name: Use environment variables in subsequent steps
       run: |
-        echo "Variable1: ${{ env.VARIABLE1 }}"
-        echo "Variable3: ${{ env.VARIABLE3 }}"
-        echo "Variable2: ${{ env.VARIABLE2 }}"
-    - name: ShellScript
-      run: ./PlatformWindows/ShellScripts/test_run.sh ${{ env.VARIABLE1 }}
+        echo "Variable1: ${{ steps.set-env.outputs.VARIABLE1 }}"
+#    - name: ShellScript
+#      run: ./PlatformWindows/ShellScripts/test_run.sh ${{ env.VARIABLE1 }}
