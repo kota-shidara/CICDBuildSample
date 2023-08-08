@@ -4,7 +4,7 @@ using UnityEditor;
 
 public class ReturnValue
 {
-    
+    [MenuItem("Tools/ReturnValue/CreateOutput")]
     public static void CreateOutput()
     {
         string[] outputs = new string[]
