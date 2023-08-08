@@ -4,3 +4,4 @@ text="$1"
 
 touch "/Users/kota/Desktop/tst.txt" 
 echo "This is a test. ${text} " > "/Users/kota/Desktop/tst.txt"
+touch "/Users/kota/Desktop/tst${text}.txt"
