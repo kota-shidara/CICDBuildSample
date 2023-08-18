@@ -1,4 +1,4 @@
-name: Compile Test
+name: Pico On Compile Test
 on: workflow_dispatch
 jobs:
   Build:

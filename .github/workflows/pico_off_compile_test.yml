@@ -1,0 +1,15 @@
+name: Pico Off Compile Test
+on: workflow_dispatch
+jobs:
+  Build:
+    runs-on: dara-macbook-pro
+    steps:
+      - name: Checkout-Mac
+        uses: actions/checkout@v3
+        with:
+          clean: false
+          path: PlatformMac
+      - name: SetPicoDefineOff
+        run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformMac -executeMethod DefineSymbolsEditor.SetPicoOff -nographics -logFile
+      - name: BuildMac
+        run: /Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -logFile -projectPath ./PlatformMac -executeMethod Build.BuildReleaseMac -nographics -logFile
