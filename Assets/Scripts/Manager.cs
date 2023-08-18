@@ -17,7 +17,12 @@ public class Manager : MonoBehaviour
         text.text = "Android";
 #endif
 
-        versionText.text = "3";
+#if PICO_PLATFORM
+        versionText.text = "PICO";
+#else
+        versionText.text = "NOT_PICO";
+#endif
+        
         processorCount.text = SystemInfo.processorCount.ToString();
         processorFrequency.text = SystemInfo.processorFrequency.ToString();
     }
