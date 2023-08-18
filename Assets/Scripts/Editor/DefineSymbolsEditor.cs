@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 public static class DefineSymbolsEditor
 {
@@ -12,6 +13,11 @@ public static class DefineSymbolsEditor
     public static void SetPicoOff()
     {
         SetDefineSymbols(false);
+    }
+
+    public static void SimpleDebug()
+    {
+        Debug.Log("====Just a simple debug====");
     }
 
     private static void SetDefineSymbols(bool isPicoOn)
