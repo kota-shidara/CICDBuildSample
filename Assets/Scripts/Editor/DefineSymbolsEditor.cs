@@ -1,20 +1,20 @@
 using UnityEditor;
 
-internal class DefineSymbolsEditor : EditorWindow
+public static class DefineSymbolsEditor
 {
     private const string PICO_PLATFORM_DEFINE = "PICO_PLATFORM";
 
-    public void SetPicoOn()
+    public static void SetPicoOn()
     {
         SetDefineSymbols(true);
     }
 
-    public void SetPicoOff()
+    public static void SetPicoOff()
     {
         SetDefineSymbols(false);
     }
 
-    private void SetDefineSymbols(bool isPicoOn)
+    private static void SetDefineSymbols(bool isPicoOn)
     {
         var symbols =
             PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
