@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private Text processorCount;
     [SerializeField] private Text processorFrequency;
     
-    void Start()
+    private void Start()
     {
 #if UNITY_STANDALONE_WIN
         text.text = "Windows";
